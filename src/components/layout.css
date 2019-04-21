@@ -1,0 +1,12 @@
+.keycap .border { stroke: black; stroke-width: 2; }
+.keycap .inner.border { stroke: rgba(0,0,0,.1); }
+
+.KeyBoard{
+    padding-left : 100px;
+    /* padding-right : 100px; */
+}
+.TextAreaDiv{
+    padding-Top :100px;
+    padding-left: 100px;
+    width : 100%;
+}
