@@ -121,10 +121,16 @@ class App extends Component {
      Advanced stuff => WRITE YOUR IDEAS !
      */
     return (
-    <div className="container">
-        <TypeBox text={this.state.text} />
-        <Keyboard color={this.state.color}/>
+    <div>
+        <header className="Header">
+            AND THIS FOLKS IS THE HEADER
+        </header>
+        <div className="container">
+            <TypeBox text={this.state.text} />
+            <Keyboard color={this.state.color}/>
+        </div>
     </div>
+    
     
     
     
