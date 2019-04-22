@@ -1,4 +1,4 @@
-import logo from './layout.svg';
+
 import React, { Component } from 'react'
 import './layout.css';
 
@@ -6,11 +6,12 @@ class Keyboard extends Component {
 
   render() {
     return (
-      <div className="main-layout">
+    <div className="main-keyboard">
+      <div className="keyboardBox">
             {/*Whole svg is loaded here so as to be able to use the passed color */}
         
             <svg width='840px'
-                height='381px'
+                height='341px'
                 viewBox='0 80 840 381' className="KeyBoard">
 
                 
@@ -1746,7 +1747,8 @@ class Keyboard extends Component {
             </svg>
 
       </div>
-    )
+    </div>
+    );
   }
 }
 

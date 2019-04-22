@@ -3,12 +3,11 @@ import './layout.css'
 class TypeBox extends Component{
     render(){
         return(
-            <div>
-                <div className="TextAreaDiv">
-                <input type="text" placeholder={this.props.text} />
-                </div>
+        <div className="textBox">
+            <div className="box1">
+                <p >{this.props.text}</p>
             </div>
-            
+        </div>
         );
     }
 }

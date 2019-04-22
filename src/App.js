@@ -7,7 +7,7 @@ import './App.css';
 
 class App extends Component {
     get_text(){
-        return "Lorem ipsum bretur"
+        return "they orlds powed those powed the the may the ame the time were far and may and tumn "
     }
     state = {
         text : this.get_text(), //This actually gets the title from the backend
@@ -121,7 +121,7 @@ class App extends Component {
      Advanced stuff => WRITE YOUR IDEAS !
      */
     return (
-    <div >
+    <div className="container">
         <TypeBox text={this.state.text} />
         <Keyboard color={this.state.color}/>
     </div>

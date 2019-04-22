@@ -1,12 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two');
 .keycap .border { stroke: black; stroke-width: 2; }
 .keycap .inner.border { stroke: rgba(0,0,0,.1); }
 
-.KeyBoard{
-    padding-left : 100px;
-    /* padding-right : 100px; */
+.keyboardBox{
+    padding-left : 15%;
+    padding-top : 0%;
 }
-.TextAreaDiv{
-    padding-Top :100px;
-    padding-left: 100px;
-    width : 100%;
+
+
+
+.textBox{
+    text-align: center;
+}
+.textBox .box1{
+    max-width : 90%;
+}
+.textBox .box1 p {
+    color : #aaa;
+    font-family: 'Shadows Into Light Two', cursive;
+    font-size : 30px;
 }
