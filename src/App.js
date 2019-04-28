@@ -86,14 +86,23 @@ class App extends Component {
                 There is 'code' which displays the key position, so now no
                 need to convert it. 
         */
-        if(e.code in this.state.color){
-            /*
-             *if key is present in the color, 
-             *change the state when key is pressed.
-             */
-            
+        console.log(e.key);
+        // if(e.code in this.state.color){
+        //     /*
+        //      *if key is present in the color, 
+        //      *change the state when key is pressed.
+        //      */
+        //     var x = e.code;
+        //     this.setState(prevState => (
+        //         {
+        //             color : {
+        //                 ...prevState.color,
+        //                 x : '#aaa'
+        //             }
+        //         }
+        //     ))
 
-        }
+        // }
     }
     onkeyUp = (e) => {
         if (e.key in this.state.color){
@@ -123,9 +132,9 @@ class App extends Component {
     return (
     <div>
         <header className="Header">
-            AND THIS FOLKS IS THE HEADER
+            
         </header>
-        <div className="container">
+        <div className="container" onKeyDown={this.onkeyDown} tabIndex="0">
             <TypeBox text={this.state.text} />
             <Keyboard color={this.state.color}/>
         </div>
