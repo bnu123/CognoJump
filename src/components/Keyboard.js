@@ -942,7 +942,7 @@ class Keyboard extends Component {
             
             </g>
 
-            <g className='  keycap' data-key="Capslock">
+            <g className='  keycap' data-key="CapsLock">
 
                 {/*OuterFill*/}
                 <rect x="1" y="190"
@@ -959,7 +959,7 @@ class Keyboard extends Component {
                 {/*Inner Fill*/}
                 <rect x="7" y="193"
                         width="80.5" height="40"
-                        rx="5" fill={this.props.color.Capslock}/>
+                        rx="5" fill={this.props.color.CapsLock}/>
                 
                 
                     
@@ -969,7 +969,7 @@ class Keyboard extends Component {
                         rx="5" fill="url(#DCS)"/>
                 
 
-                <text kerning="-2" x="27.5" y="213" fill="#fff" fontSize="12">Capslock</text>
+                <text kerning="-2" x="27.5" y="213" fill="#fff" fontSize="12">CapsLock</text>
 
                 
             
@@ -1682,8 +1682,8 @@ class Keyboard extends Component {
                         rx="5" fill="#2f2f2f" className="inner border"/>
                 
                 {/*Inner Fill*/}
-                <rect x="209.5" y="301"
-                        width="385" height="40"
+                <rect x="140" y="301"
+                        width="529" height="40"
                         rx="5" fill={this.props.color.SpaceBar}/>
                 
                     <rect x="209.5" y="301"

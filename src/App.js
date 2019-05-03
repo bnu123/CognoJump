@@ -43,7 +43,7 @@ class App extends Component {
             BracketLeft : "#2f2f2f",
             BracketRight : "#2f2f2f",
             Backslash : "#2f2f2f",
-            Capslock : "#2f2f2f",
+            CapsLock : "#2f2f2f",
             KeyA : "#2f2f2f",
             KeyS : "#2f2f2f",
             KeyD : "#2f2f2f",
@@ -75,6 +75,64 @@ class App extends Component {
             ControlRight : "#2f2f2f"
         }
     }
+    special_characters = {
+        ';' : 'Semicolon',
+        ' ' : 'SpaceBar',
+        '`' : 'Backquote',
+        '-' : 'Minus',
+        '=' : 'Equal',
+        '/' : 'Slash',
+        '\'': 'Quotes',
+        ',' : 'Comma',
+        '.' : 'Period',
+        '\\' : 'Backslash',
+        '[' : 'BracketLeft',
+        ']' : 'BracketRight',
+
+    }
+    changed_characters = {
+        'Control' : 'ControlLeft',
+        'Alt' : 'AltLeft',
+        'Shift': 'ShiftLeft'
+    }
+
+    get_key = (tes) => {
+            
+        //check if special character
+        var parsed_key = parseInt(tes);
+        var key = tes;
+        if (tes in this.special_characters){
+            key = this.special_characters[tes];
+            return key;
+        }
+        if (tes.length === 1){
+            //check for digit
+            if(!isNaN(parsed_key)){
+                key = `Digit${tes}`;
+
+            }
+            //Normal key pressed
+            else{
+                //capitalise key e.g. a--> 
+                var capital = tes.toUpperCase();
+                key = `Key${capital}`;
+            }
+        }
+        else{
+            if (key in this.changed_characters){
+                key = this.changed_characters[key];
+            }
+            else
+                key = tes;
+        }
+
+
+    
+    //key is like 'Tab','Shift'
+    
+    return key;
+}
+    
     onkeyDown = (e) => {
         /*
         Initial Thoughts : 
@@ -85,29 +143,41 @@ class App extends Component {
         Then Found Out : https://javascript.info/keyboard-events#summary
                 There is 'code' which displays the key position, so now no
                 need to convert it. 
-        */
-        console.log(e.key);
-        // if(e.code in this.state.color){
-        //     /*
-        //      *if key is present in the color, 
-        //      *change the state when key is pressed.
-        //      */
-        //     var x = e.code;
-        //     this.setState(prevState => (
-        //         {
-        //             color : {
-        //                 ...prevState.color,
-        //                 x : '#aaa'
-        //             }
-        //         }
-        //     ))
 
-        // }
+        Then Again found out : e.code does not work, it gives undefined as return
+        */
+       e.preventDefault();
+        var raw = e.key;
+        console.log(raw);
+        
+        var k = this.get_key(raw);
+        if (k in this.state.color){
+            this.setState(prevState => (
+                {
+                    color : {
+                        ...prevState.color,
+                        [k] : '#aaa'
+                    }
+                }
+            ))
+        }
+
+        
     }
     onkeyUp = (e) => {
-        if (e.key in this.state.color){
-            //change the state when key is released.
+        var raw = e.key;
+        var k = this.get_key(raw);
+        if (k in this.state.color){
+            this.setState(prevState => (
+                {
+                    color : {
+                        ...prevState.color,
+                        [k] : "#2f2f2f" 
+                    }
+                }
+            ))
         }
+
     }
     
   render() {
@@ -132,9 +202,9 @@ class App extends Component {
     return (
     <div>
         <header className="Header">
-            
+        
         </header>
-        <div className="container" onKeyDown={this.onkeyDown} tabIndex="0">
+        <div className="container" onKeyDown={this.onkeyDown} onKeyUp={this.onkeyUp} tabIndex="0">
             <TypeBox text={this.state.text} />
             <Keyboard color={this.state.color}/>
         </div>
