@@ -6,8 +6,16 @@ import './App.css';
 
 
 class App extends Component {
-    get_text(){
-        return "they orlds powed those powed the the may the ame the time were far and may and tumn "
+    /*
+    
+    */
+    get_text(x){
+        // gets the text from server
+        //for now x is the argument to get a text with maximum character 'x' on it
+        //useful for enhancing your speed on a particular character
+        //this function is called 2 times over a cycle, 1st when app loads second
+        //when string becomes empty
+        return "Lorem aisd fasd fasd fasidf asdf adsfiasidf idnf df dif dif ifidsa fi asdfiasfiasdf asdifasdf ";
     }
     state = {
         text : this.get_text(), //This actually gets the title from the backend
@@ -161,6 +169,15 @@ class App extends Component {
                 }
             ))
         }
+        var x = this.state.text;
+        if (x.length === 0){
+            this.setState({text : this.get_text()});
+        }
+        if(x.charAt(0) === raw){
+            var str = x.substring(1);
+            this.setState({text : str})
+        }
+        
 
         
     }
