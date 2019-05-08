@@ -11,3 +11,7 @@
 .Header{
     height: 100px;
 }
+.Outer{
+    margin-left : 10%;
+    margin-right : 10%;
+}

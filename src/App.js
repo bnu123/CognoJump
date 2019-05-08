@@ -15,14 +15,12 @@ class App extends Component {
         //useful for enhancing your speed on a particular character
         //this function is called 2 times over a cycle, 1st when app loads second
         //when string becomes empty
-        return "Lorem aisd fasd fasd fasidf asdf adsfiasidf idnf df dif dif ifidsa fi asdfiasfiasdf asdifasdf ";
+        return "Years ago, I was not the only one to do the stuff you think one can, rather of all the people, I was the one who dared to do something different";
     }
     state = {
-        text : this.get_text(), //This actually gets the title from the backend
-        color : {   //Idea is that, whenever key is pressed, the color state of key should be changed.
-                    //Makes it easy.
-
-            //In code refactoring, make this a variable outside, so that it doesn't get cluttered here.
+        text : this.get_text(),
+        //define color for each keykk
+        color : { 
             Backquote : "#2f2f2f",
             Digit1 : "#2f2f2f",
             Digit2 : "#2f2f2f",
@@ -134,12 +132,8 @@ class App extends Component {
                 key = tes;
         }
 
-
-    
-    //key is like 'Tab','Shift'
-    
-    return key;
-}
+        return key;
+    }
     
     onkeyDown = (e) => {
         /*
@@ -154,11 +148,11 @@ class App extends Component {
 
         Then Again found out : e.code does not work, it gives undefined as return
         */
-       e.preventDefault();
+        e.preventDefault();
         var raw = e.key;
-        console.log(raw);
-        
+    
         var k = this.get_key(raw);
+
         if (k in this.state.color){
             this.setState(prevState => (
                 {
@@ -170,9 +164,11 @@ class App extends Component {
             ))
         }
         var x = this.state.text;
+
         if (x.length === 0){
             this.setState({text : this.get_text()});
         }
+        //Space handling poor 
         if(x.charAt(0) === raw){
             var str = x.substring(1);
             this.setState({text : str})
@@ -217,11 +213,11 @@ class App extends Component {
      Advanced stuff => WRITE YOUR IDEAS !
      */
     return (
-    <div>
+    <div className="Outer">
         <header className="Header">
         
         </header>
-        <div className="container" onKeyDown={this.onkeyDown} onKeyUp={this.onkeyUp} tabIndex="0">
+        <div className="container" onKeyDown={this.onkeyDown} onKeyUp={this.onkeyUp} tabIndex="0" >
             <TypeBox text={this.state.text} />
             <Keyboard color={this.state.color}/>
         </div>
