@@ -4,118 +4,42 @@ import TypeBox from './components/TypeBox';
 
 import './App.css';
 
+import {special_characters, changed_characters, colors} from './utility';
 
 class App extends Component {
     /*
     
     */
     get_text(x){
-        // gets the text from server
-        //for now x is the argument to get a text with maximum character 'x' on it
-        //useful for enhancing your speed on a particular character
-        //this function is called 2 times over a cycle, 1st when app loads second
-        //when string becomes empty
-        return "Years ago, I was not the only one to do the stuff you think one can, rather of all the people, I was the one who dared to do something different";
+       // gets the text from server
+       //for now x is the argument to get a text with maximum character 'x' on it
+       //useful for enhancing your speed on a particular character
+       //this function is called 2 times over a cycle, 1st when app loads second
+       //when string becomes empty
+       return "And who is gonna save you when I am gone";
     }
+
     state = {
-        text : this.get_text(),
-        //define color for each keykk
-        color : { 
-            Backquote : "#2f2f2f",
-            Digit1 : "#2f2f2f",
-            Digit2 : "#2f2f2f",
-            Digit3 : "#2f2f2f",
-            Digit4 : "#2f2f2f",
-            Digit5 : "#2f2f2f",
-            Digit6 : "#2f2f2f",
-            Digit7 : "#2f2f2f",
-            Digit8 : "#2f2f2f",
-            Digit9 : "#2f2f2f",
-            Digit0 : "#2f2f2f",
-            Minus  : "#2f2f2f",
-            Equal : "#2f2f2f",
-            Backspace : "#2f2f2f",
-            Tab : "#2f2f2f",
-            KeyQ : "#2f2f2f",
-            KeyW : "#2f2f2f",
-            KeyE : "#2f2f2f",
-            KeyR : "#2f2f2f",
-            KeyT : "#2f2f2f",
-            KeyY : "#2f2f2f",
-            KeyU : "#2f2f2f",
-            KeyI : "#2f2f2f",
-            KeyO : "#2f2f2f",
-            KeyP : "#2f2f2f",
-            BracketLeft : "#2f2f2f",
-            BracketRight : "#2f2f2f",
-            Backslash : "#2f2f2f",
-            CapsLock : "#2f2f2f",
-            KeyA : "#2f2f2f",
-            KeyS : "#2f2f2f",
-            KeyD : "#2f2f2f",
-            KeyF : "#2f2f2f",
-            KeyG : "#2f2f2f",
-            KeyH : "#2f2f2f",
-            KeyJ : "#2f2f2f",
-            KeyK : "#2f2f2f",
-            KeyL : "#2f2f2f",
-            Semicolon : "#2f2f2f",
-            Quotes : "#2f2f2f",
-            Enter : "#2f2f2f",
-            ShiftLeft : "#2f2f2f",
-            KeyZ : "#2f2f2f",
-            KeyX : "#2f2f2f",
-            KeyC : "#2f2f2f",
-            KeyV : "#2f2f2f",
-            KeyB : "#2f2f2f",
-            KeyN : "#2f2f2f",
-            KeyM : "#2f2f2f",
-            Comma : "#2f2f2f",
-            Period : "#2f2f2f",
-            Slash : "#2f2f2f",
-            ShiftRight : "#2f2f2f",
-            ControlLeft : "#2f2f2f",
-            AltLeft : "#2f2f2f",
-            SpaceBar : "#2f2f2f",
-            AltRight : "#2f2f2f",
-            ControlRight : "#2f2f2f"
-        }
+       text : this.get_text(),
+       span_text : "",
+       //define color for each keykk
+       color : colors
     }
-    special_characters = {
-        ';' : 'Semicolon',
-        ' ' : 'SpaceBar',
-        '`' : 'Backquote',
-        '-' : 'Minus',
-        '=' : 'Equal',
-        '/' : 'Slash',
-        '\'': 'Quotes',
-        ',' : 'Comma',
-        '.' : 'Period',
-        '\\' : 'Backslash',
-        '[' : 'BracketLeft',
-        ']' : 'BracketRight',
-
-    }
-    changed_characters = {
-        'Control' : 'ControlLeft',
-        'Alt' : 'AltLeft',
-        'Shift': 'ShiftLeft'
-    }
-
-    get_key = (tes) => {
-            
+   
+    get_key = (tes) => {    
         //check if special character
         var parsed_key = parseInt(tes);
         var key = tes;
-        if (tes in this.special_characters){
-            key = this.special_characters[tes];
+
+        if (tes in special_characters){
+            key = special_characters[tes];
             return key;
         }
+
         if (tes.length === 1){
             //check for digit
             if(!isNaN(parsed_key)){
                 key = `Digit${tes}`;
-
             }
             //Normal key pressed
             else{
@@ -124,10 +48,12 @@ class App extends Component {
                 key = `Key${capital}`;
             }
         }
-        else{
-            if (key in this.changed_characters){
-                key = this.changed_characters[key];
+
+        else {
+            if (key in changed_characters){
+                key = changed_characters[key];
             }
+
             else
                 key = tes;
         }
@@ -145,12 +71,11 @@ class App extends Component {
         Then Found Out : https://javascript.info/keyboard-events#summary
                 There is 'code' which displays the key position, so now no
                 need to convert it. 
-
+    
         Then Again found out : e.code does not work, it gives undefined as return
         */
         e.preventDefault();
         var raw = e.key;
-    
         var k = this.get_key(raw);
 
         if (k in this.state.color){
@@ -167,19 +92,22 @@ class App extends Component {
 
         if (x.length === 0){
             this.setState({text : this.get_text()});
+            this.setState({span_text : ""});
         }
         //Space handling poor 
         if(x.charAt(0) === raw){
-            var str = x.substring(1);
-            this.setState({text : str})
+            var str = x.charAt(0);
+            this.setState({text : x.substring(1)})
+            var span_text = this.state.span_text;
+            span_text = span_text + str;
+            this.setState({span_text : span_text});
         }
-        
-
-        
     }
+
     onkeyUp = (e) => {
         var raw = e.key;
         var k = this.get_key(raw);
+
         if (k in this.state.color){
             this.setState(prevState => (
                 {
@@ -207,7 +135,7 @@ class App extends Component {
      1. The 'text' if the key pressed is same as the position we are on the text string
      2. The color of that key.
 
-     On KeyUp event, 'color' is reverted back it its previous state :D
+     On KeyUp event, 'color' is reverted back it its previous state
 
      ====Idea for the game=====================
      Advanced stuff => WRITE YOUR IDEAS !
@@ -215,17 +143,12 @@ class App extends Component {
     return (
     <div className="Outer">
         <header className="Header">
-        
         </header>
         <div className="container" onKeyDown={this.onkeyDown} onKeyUp={this.onkeyUp} tabIndex="0" >
-            <TypeBox text={this.state.text} />
+            <TypeBox main_text={this.state.text} span_text={this.state.span_text}/>
             <Keyboard color={this.state.color}/>
         </div>
     </div>
-    
-    
-    
-    
     );
   }
 }
