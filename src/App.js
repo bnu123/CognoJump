@@ -7,16 +7,14 @@ import './App.css';
 import {special_characters, changed_characters, colors} from './utility';
 
 class App extends Component {
-    /*
-    
-    */
-    get_text(x){
+
+    get_text(char){
        // gets the text from server
-       //for now x is the argument to get a text with maximum character 'x' on it
+       //for now char is the argument to get a text with maximum character 'char' on it
        //useful for enhancing your speed on a particular character
        //this function is called 2 times over a cycle, 1st when app loads second
        //when string becomes empty
-       return "And who is gonna save you when I am gone";
+       return "ede ane kane lane fine doune dine discover this andn not ";
     }
 
     state = {

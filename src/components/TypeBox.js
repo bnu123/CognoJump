@@ -7,7 +7,7 @@ class TypeBox extends Component{
     }
     render(){
         var style = {
-            color : 'red'
+            color : "#de6f"
         };
         return(
         <div className="textBox">
