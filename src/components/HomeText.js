@@ -4,13 +4,13 @@ import progress from '../css/progress.png';
 import '../css/hometext.css';
 export default function HomeText() {
     return (
-        
+    
         <div>
         <div className="container" >
             <div className="row">
                 <div className="col-md-12">
 
-                <h1 className="text-bold">
+                <h1 className="text-bold" style={{marginTop : "1em"}}>
                     Welcome
                 </h1>
 
@@ -19,6 +19,7 @@ export default function HomeText() {
                 </p>
                 </div>
             </div>
+            <div className="container" style={{marginTop : "4em"}}>
             <div className="row my-row" >
                 <div className="col col-md-6">
                     <h1 className="text-bold">
@@ -84,6 +85,7 @@ export default function HomeText() {
                     Want to have fun and get a challenge that will test your hand-eye coordination ?
                     See our Cogno Game made with efforts to give an astounding challenge and have people mull over it
                 </p>
+            </div>
             </div>
         </div>
     <div>

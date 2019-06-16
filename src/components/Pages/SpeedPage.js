@@ -57,7 +57,7 @@ class SpeedPage extends Component {
 
     get_text(char){
         // text from server
-       return "He who had seen the glory in death, curse in life and loneliness around people shall be name the heir to the throne";
+       return "He who had seen the glory in death, curse in life and loneliness around people shall be named the heir to the throne";
     }
 
 

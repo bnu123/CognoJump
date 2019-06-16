@@ -4,7 +4,7 @@ import brand from '../css/brand.svg'
 import '../css/navbar.css';
 export default function Navbar() {
     return (
-        <div className="container ">
+        <div className="container " style={{marginTop : "1em"}}>
         <nav className="navbar navbar-expand-sm sticky-top ">
             <Link to="/"><img src={brand} alt="nothign"/></Link>
             <span className="navbar-text">Cogno Jump</span>
