@@ -6,25 +6,7 @@ import '../../css/SpeedPage.css';
 
 import {special_characters, changed_characters, colors} from '../../utility';
 
-class SpeedPage extends Component {
-
-    get_text(char){
-       // gets the text from server
-       //for now char is the argument to get a text with maximum character 'char' on it
-       //useful for enhancing your speed on a particular character
-       //this function is called 2 times over a cycle, 1st when app loads second
-       //when string becomes empty
-       return "ede ane kane lane fine doune dine discover this andn not ";
-    }
-
-    state = {
-       text : this.get_text(),
-       span_text : "",
-       //define color for each keykk
-       color : colors
-    }
-   
-    get_key = (tes) => {    
+ const get_key = (tes) => {    
         //check if special character
         var parsed_key = parseInt(tes);
         var key = tes;
@@ -58,6 +40,29 @@ class SpeedPage extends Component {
 
         return key;
     }
+
+
+class SpeedPage extends Component {
+
+    get_text(char){
+       // gets the text from server
+       //for now char is the argument to get a text with maximum character 'char' on it
+       //useful for enhancing your speed on a particular character
+       //this function is called 2 times over a cycle, 1st when app loads second
+       //when string becomes empty
+       return "ede ane kane lane fine doune dine discover this andn not ";
+    }
+
+    textLength = this.get_text().length;
+
+
+    state = {
+       text : this.get_text(),
+       span_text : "",
+       //define color for each keykk
+       color : colors
+    }
+   
     
     onkeyDown = (e) => {
         /*
@@ -74,7 +79,7 @@ class SpeedPage extends Component {
         */
         e.preventDefault();
         var raw = e.key;
-        var k = this.get_key(raw);
+        var k = get_key(raw);
 
         if (k in this.state.color){
             this.setState(prevState => (
@@ -88,23 +93,29 @@ class SpeedPage extends Component {
         }
         var x = this.state.text;
 
-        if (x.length === 0){
+        if(this.textLength === 1 && x.charAt(0) === raw){
             this.setState({text : this.get_text()});
             this.setState({span_text : ""});
+            this.textLength = this.get_text().length;
+            return ; 
         }
         //Space handling poor 
         if(x.charAt(0) === raw){
             var str = x.charAt(0);
-            this.setState({text : x.substring(1)})
+            this.setState((prevState)=>(
+                {...prevState,text : x.substring(1)}
+            ));
             var span_text = this.state.span_text;
             span_text = span_text + str;
             this.setState({span_text : span_text});
+            this.textLength = this.textLength - 1;
         }
+        
     }
 
     onkeyUp = (e) => {
         var raw = e.key;
-        var k = this.get_key(raw);
+        var k = get_key(raw);
 
         if (k in this.state.color){
             this.setState(prevState => (
