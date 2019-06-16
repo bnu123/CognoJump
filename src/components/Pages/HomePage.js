@@ -7,7 +7,6 @@ import HomeText from '../HomeText';
 export default function HomePage() {
     return (
     <div className="Home">
-        <Navbar />
         <HomeText /> 
     </div>
     );

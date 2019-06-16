@@ -5,6 +5,7 @@ import TypeBox from '../TypeBox';
 import '../../css/SpeedPage.css';
 
 import {special_characters, changed_characters, colors} from '../../utility';
+import Indicators from '../Indicators';
 
  const get_key = (tes) => {    
         //check if special character
@@ -44,26 +45,22 @@ import {special_characters, changed_characters, colors} from '../../utility';
 
 class SpeedPage extends Component {
 
-    get_text(char){
-       // gets the text from server
-       //for now char is the argument to get a text with maximum character 'char' on it
-       //useful for enhancing your speed on a particular character
-       //this function is called 2 times over a cycle, 1st when app loads second
-       //when string becomes empty
-       return "ede ane kane lane fine doune dine discover this andn not ";
-    }
-
-    textLength = this.get_text().length;
-
-
     state = {
        text : this.get_text(),
        span_text : "",
+       
        //define color for each keykk
-       color : colors
+       color : colors,
+       textLength : this.get_text().length,
+
     }
-   
-    
+
+    get_text(char){
+        // text from server
+       return "He who had seen the glory in death, curse in life and loneliness around people shall be name the heir to the throne";
+    }
+
+
     onkeyDown = (e) => {
         /*
         Initial Thoughts : 
@@ -91,26 +88,38 @@ class SpeedPage extends Component {
                 }
             ))
         }
+
         var x = this.state.text;
 
-        if(this.textLength === 1 && x.charAt(0) === raw){
-            this.setState({text : this.get_text()});
-            this.setState({span_text : ""});
-            this.textLength = this.get_text().length;
+        if(this.state.textLength === 1 && x.charAt(0) === raw){
+            this.setState((prevState)=>({
+                        ...prevState,
+                        text : this.get_text(),
+                        span_text : "",
+                        textLength : this.get_text().length,
+            }
+            ));
             return ; 
         }
-        //Space handling poor 
+
+        
         if(x.charAt(0) === raw){
             var str = x.charAt(0);
-            this.setState((prevState)=>(
-                {...prevState,text : x.substring(1)}
-            ));
             var span_text = this.state.span_text;
             span_text = span_text + str;
-            this.setState({span_text : span_text});
-            this.textLength = this.textLength - 1;
+            let length = this.state.textLength - 1;
+
+            this.setState((prevState)=>({
+                ...prevState,
+                text : x.substring(1),
+                span_text : span_text,
+                textLength : length, 
+
+            }));
+            return ;
         }
-        
+
+       
     }
 
     onkeyUp = (e) => {
@@ -132,31 +141,16 @@ class SpeedPage extends Component {
     
   render() {
 
-    /*
-     *Renderes Two component
-     *Keyboard : which is where the svg resides
-     *TypeBox : which is where the user types.
-     Keyboard is passed the state's 'color' as property => used by the svg innerFill
-     TypeBox is passed the state's 'text' as propery.
-
-     ===========================================
-     Whenever a keyDown event is triggered, Following changes in the state
-     1. The 'text' if the key pressed is same as the position we are on the text string
-     2. The color of that key.
-
-     On KeyUp event, 'color' is reverted back it its previous state
-
-     ====Idea for the game=====================
-     Advanced stuff => WRITE YOUR IDEAS !
-     */
     return (
     
     <div>
         <header className="Header">
         </header>
         <div  onKeyDown={this.onkeyDown} onKeyUp={this.onkeyUp} tabIndex="0" >
-            <TypeBox main_text={this.state.text} span_text={this.state.span_text}/>
+            <Indicators />
+            <TypeBox main_text={this.state.text} span_text={this.state.span_text} />
             <Keyboard color={this.state.color}/>
+            
         </div>
     </div>
    

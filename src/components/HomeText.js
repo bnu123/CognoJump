@@ -1,7 +1,10 @@
 import React from 'react'
-
+import typing from '../css/typing.jpeg';
+import progress from '../css/progress.png';
+import '../css/hometext.css';
 export default function HomeText() {
     return (
+        
         <div>
         <div className="container" >
             <div className="row">
@@ -11,7 +14,7 @@ export default function HomeText() {
                     Welcome
                 </h1>
 
-                <p className="text">
+                <p className="text" >
                     This site aims to improve your typing speed by a carefully designed typing calculator and ofcourse nothing is complete without a little fun, so we have for you a game, a challenge. Have fun typing            
                 </p>
                 </div>
@@ -28,15 +31,15 @@ export default function HomeText() {
                     </p>
                 </div>
 
-                <div className="col col-md-6">
-                    {/* <!-- Image to be inserted --> */}
+                <div className="col col-md-6 img">
+                    <img src={typing} alt="nothing"></img>
                 </div>
 
             </div>
 
             <div className="row my-row" >
-                <div className="col col-md-6">
-                    {/* <!-- Image to be inserted --> */}
+                <div className="col col-md-6 img">
+                   <img src={progress}></img> 
                 </div>
 
                 <div className="col col-md-6">

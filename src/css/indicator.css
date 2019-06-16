@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Anton|Pacifico&display=swap');
+.indicator-text{
+    font-family: 'Anton', sans-serif;
+    font-size : 30px;
+    color : rgb(124, 124, 124);
+}
+
+.indicator-value{
+    font-family : 'Anton', sans-serif;
+    font-size : 30px;
+    color : rgb(202, 202, 202);
+    
+}

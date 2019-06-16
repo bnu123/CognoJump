@@ -8,10 +8,10 @@ class Keyboard extends Component {
     return (
       <div className="container">
             {/*Whole svg is loaded here so as to be able to use the passed color */}
-        
+            <div className="row justify-content-center"> 
             <svg width='840px'
                 height='341px'
-                viewBox='0 80 840 381' className="KeyBoard">
+                viewBox='0 80 840 381' >
 
                 
                 <defs>
@@ -1744,7 +1744,8 @@ class Keyboard extends Component {
                 </g>
                 </g>
             </svg>
-
+            
+            </div>
       </div>
     );
   }
