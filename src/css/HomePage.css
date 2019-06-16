@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Aclonica&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Prompt&display=swap');
+
+.Home {
+    background-image: url("729.jpeg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    /* background-size: 100% 100%; */
+    
+}
+
+/*setting text size, font */
+
+.text{
+    font-family: 'Prompt', sans-serif;
+     color : #a6a6a7;
+     font-size : 30px;
+}
+.text-bold{
+    font-family: 'Aclonica', 'sans-serif';
+    font-weight : bold;
+    font-size : 50px;
+     color : #06845c;
+}
+.text-italic{
+    font-family: 'Prompt', sans-serif;
+    font-style: italic;
+     color : #a6a6a7;
+}
+.nav-link{
+    font-family: 'Aclonica', 'sans-serif';
+    font-size : 20px;
+    
+     color : #a6a6a7;
+}
+
+.navbar-text{
+    font-family: 'Aclonica', 'sans-serif';
+    font-size : 20px;
+    color : #06845c;
+    
+}
+
+.navbar-nav > li > a:hover {
+    color : #fafcff;
+    background-color : #06845c;
+    transition-duration: 0.5s;
+}
+
+
+
+
+
+.header {
+    margin-bottom: 2em;
+}
+.hr{
+    background-color:#a3a2a2;
+    height : 2px;
+}
+
+.my-container{
+    margin-left : 10%;
+    margin-right : 30%;
+}
+
+.img-container{
+    height : 100px;
+}
+.footer, .test-container {
+    background-image: url('test.png');
+    
+}

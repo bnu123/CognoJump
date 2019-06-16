@@ -1,13 +1,12 @@
 
 import React, { Component } from 'react'
-import './layout.css';
+import '../css/layout.css';
 
 class Keyboard extends Component {
 
   render() {
     return (
-    <div className="main-keyboard">
-      <div className="keyboardBox">
+      <div className="container">
             {/*Whole svg is loaded here so as to be able to use the passed color */}
         
             <svg width='840px'
@@ -1747,7 +1746,6 @@ class Keyboard extends Component {
             </svg>
 
       </div>
-    </div>
     );
   }
 }
