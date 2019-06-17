@@ -23,7 +23,8 @@ class LoginForm extends Component {
         this.setState({errors});
 
         if(Object.keys(errors).length === 0){
-            this.props.submit(this.state.data);
+            this.props.submit(this.state.data)
+            .catch(err => this.setState({errors : err.response.data.errors}))
         }
     };
     
@@ -39,6 +40,9 @@ class LoginForm extends Component {
         return (
             <div className="container" style={{marginTop : "8em"}}>
                <form onSubmit={this.onSubmit}>
+                {errors.global && <div className="alert alert-danger" role="alert">
+                    Something went wrong
+                </div>}
                    <div className="row">
                         <div className="col">
                             <label htmlFor="formInputEmail">Email </label>
