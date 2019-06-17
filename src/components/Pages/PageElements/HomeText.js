@@ -1,8 +1,12 @@
 import React from 'react'
-import typing from '../css/typing.jpeg';
-import progress from '../css/progress.png';
-import '../css/hometext.css';
-export default function HomeText() {
+import typing from '../../../css/typing.jpeg';
+import progress from '../../../css/progress.png';
+import '../../../css/hometext.css';
+
+
+
+
+const HomeText = ()=>{
     return (
     
         <div>
@@ -127,3 +131,4 @@ export default function HomeText() {
     </div>
     );
 }
+export default HomeText;

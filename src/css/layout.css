@@ -20,7 +20,7 @@
     padding-bottom : 0%;
 }
 p {
-    color : #aaa;
+    color : rgb(10, 10, 10);
     font-family: 'Source Code Pro', monospace;
     font-size : 30px;
     font-weight: bold;

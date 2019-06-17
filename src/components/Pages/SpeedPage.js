@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import Keyboard from '../Keyboard';
-import TypeBox from '../TypeBox';
+import Keyboard from './PageElements/Keyboard';
+import TypeBox from './PageElements/TypeBox';
 
 import '../../css/SpeedPage.css';
 
 import {special_characters, changed_characters, colors} from '../../utility';
-import Indicators from '../Indicators';
+import Indicators from './PageElements/Indicators';
 
  const get_key = (tes) => {    
         //check if special character
@@ -57,7 +57,7 @@ class SpeedPage extends Component {
 
     get_text(char){
         // text from server
-       return "He who had seen the glory in death, curse in life and loneliness around people shall be named the heir to the throne";
+       return "He, who had seen the glory in death, curse in life and loneliness around people shall achieve greatness in life";
     }
 
 

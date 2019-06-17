@@ -2,7 +2,7 @@ import HomePage from './components/Pages/HomePage.js';
 import SpeedPage from './components/Pages/SpeedPage';
 import React from 'react';
 import { Route, Switch} from 'react-router-dom';
-import Navbar from './components/Navbar'
+import Navbar from './components/Pages/PageElements/Navbar';
 const App = ()=>{
     return(
         <div >

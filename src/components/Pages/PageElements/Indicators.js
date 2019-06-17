@@ -1,5 +1,5 @@
 import React from 'react'
-import '../css/indicator.css'
+import '../../../css/indicator.css'
 
 const Indicators = (
                 {speed_value = 10,

@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import '../css/layout.css'
+import '../../../css/layout.css'
 
 class TypeBox extends Component{
     change_text(str){
@@ -9,7 +9,7 @@ class TypeBox extends Component{
     }
     render(){
         var style = {
-            color : "#42b3f4",
+            color : "grey",
         };
 
     

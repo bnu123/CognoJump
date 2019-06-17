@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import brand from '../css/brand.svg'
-import '../css/navbar.css';
+import brand from '../../../css/brand.svg'
+import '../../../css/navbar.css';
 export default function Navbar() {
     return (
         <div className="container " style={{marginTop : "1em"}}>
