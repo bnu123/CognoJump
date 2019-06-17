@@ -6,6 +6,7 @@ import Keyboard from './PageElements/Keyboard';
 import TypeBox from './PageElements/TypeBox';
 import {special_characters, changed_characters, colors} from '../../utility';
 import Indicators from './PageElements/Indicators';
+import Navbar from './PageElements/Navbar';
 
 import '../../css/SpeedPage.css';
 
@@ -45,7 +46,7 @@ const get_key = (tes) => {
 }
 
 class SpeedPage extends Component {
-    time = 0;
+    error = 0;
     state = {
        text : this.get_text(),
        span_text : "",
@@ -57,7 +58,7 @@ class SpeedPage extends Component {
        speed : 0,
        start_time : 0,
        end_time : 0,
-
+       error_count : 0,
     }
 
 
@@ -89,7 +90,7 @@ class SpeedPage extends Component {
             ))
         }
         // General cases : change text color only
-        if(current_text.charAt(0) === raw && textLength != 1){
+        if(current_text.charAt(0) === raw && textLength !== 1){
             var str = current_text.charAt(0);
             var span_text = this.state.span_text;
             span_text = span_text + str;
@@ -121,10 +122,17 @@ class SpeedPage extends Component {
                         speed : speed,
                         text : this.get_text(),
                         span_text : "",
-                        textLength : this.get_text().length,}));
+                        textLength : this.get_text().length,
+                        error_count : this.error
+                    }));
                 });
-
+                this.error = 0;
             return ; 
+        }
+
+        //key pressed is wrong one
+        if(!(k in changed_characters)){
+            this.error = this.error + 1;
         }
     }
 
@@ -148,15 +156,16 @@ class SpeedPage extends Component {
   render() {
 
     return (
-    <div className="some-class active">
-        <header className="Header">
-        </header>
-        <div  onKeyDown={this.onkeyDown} onKeyUp={this.onkeyUp} tabIndex="0" >
-            <Indicators speed_value={this.state.speed}/>
-            <TypeBox main_text={this.state.text} span_text={this.state.span_text} />
-            <Keyboard color={this.state.color}/>
+        <div className="some-class active">
+            <Navbar />
+            <header className="Header">
+            </header>
+            <div  onKeyDown={this.onkeyDown} onKeyUp={this.onkeyUp} tabIndex="0" >
+                <Indicators speed_value={this.state.speed} error_count={this.state.error_count}/>
+                <TypeBox main_text={this.state.text} span_text={this.state.span_text} />
+                <Keyboard color={this.state.color}/>
+            </div>
         </div>
-    </div>
     );
   }
 }

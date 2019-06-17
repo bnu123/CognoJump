@@ -13,7 +13,7 @@ const Indicators = (
                 </div>
                 <div className="col-md-2">
                     <span className="indicator-text">Errors : </span>
-                    {/* <span className="indicator-value">{error_value}</span> */}
+                    <span className="indicator-value">{props.error_count}</span>
                 </div>
                 <div className="col-md-2">
                     <span className="indicator-text">Gain : </span>
