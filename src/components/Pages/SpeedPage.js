@@ -89,7 +89,7 @@ class SpeedPage extends Component {
             ))
         }
         // General cases : change text color only
-        if(current_text.charAt(0) === raw){
+        if(current_text.charAt(0) === raw && textLength != 1){
             var str = current_text.charAt(0);
             var span_text = this.state.span_text;
             span_text = span_text + str;
@@ -114,7 +114,7 @@ class SpeedPage extends Component {
             this.setState((prevState)=>({...prevState,end_time : new Date()}), 
                 ()=>{
                     let time_elapsed = ((this.state.end_time - this.state.start_time)/1000)/60; //minutest
-                    let speed = ((this.state.initialLength/5)/time_elapsed);
+                    let speed = Math.round(((this.state.initialLength/5)/time_elapsed));
 
                     this.setState((prevState)=>(
                         {...prevState,
