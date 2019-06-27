@@ -17,7 +17,7 @@ const Indicators = (
                 </div>
                 <div className="col-md-2">
                     <span className="indicator-text">Gain : </span>
-                    {/* <span className="indicator-value">{error_frequency_key}</span> */}
+                    <span className="indicator-value">{props.gain}</span>
                 </div>
                 <div className="col-md-4 text-right" >
                    <button className="btn btn-primary"type="button">Advance Settings</button> 

@@ -15,8 +15,8 @@ class TypeBox extends Component{
     
         return(
         <div className="container">
-            <div clasName="row ">
-                    <p className="text-center">
+            <div className="row justify-content-center">
+                    <p className="text-center type-box-text">
                         <span style={style}>{this.change_text(this.props.span_text)}
                         </span>
                         {this.change_text(this.props.main_text)}

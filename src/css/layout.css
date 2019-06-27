@@ -19,7 +19,7 @@
     padding : 10%;
     padding-bottom : 0%;
 }
-p {
+.type-box-text {
     color : rgb(10, 10, 10);
     font-family: 'Source Code Pro', monospace;
     font-size : 30px;
