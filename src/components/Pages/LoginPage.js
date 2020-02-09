@@ -1,7 +1,5 @@
 import React from 'react'
 import LoginForm from './PageElements/LoginForm';
-import { connect } from 'react-redux';
-import { login } from '../../actions/auth';
 
 
 class LoginPage extends React.Component{
@@ -21,4 +19,4 @@ class LoginPage extends React.Component{
     }
 }
 
-export default connect(null, { login })(LoginPage);
+export default LoginPage;

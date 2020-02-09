@@ -44,7 +44,7 @@ const HomeText = ()=>{
 
             <div className="row my-row" >
                 <div className="col col-md-6 img">
-                   <img src={progress}></img> 
+                   <img src={progress} alt="nothing"></img> 
                 </div>
 
                 <div className="col col-md-6">

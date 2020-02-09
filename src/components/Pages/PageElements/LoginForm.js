@@ -23,8 +23,7 @@ class LoginForm extends Component {
         this.setState({errors});
 
         if(Object.keys(errors).length === 0){
-            this.props.submit(this.state.data)
-            .catch(err => this.setState({errors : err.response.data.errors}))
+            this.props.submit(this.state.data);
         }
     };
     

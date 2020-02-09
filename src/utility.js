@@ -79,3 +79,38 @@ export const changed_characters = {
     'Alt' : 'AltLeft',
     'Shift': 'ShiftLeft'
 };
+
+export const get_key = (tes) => {    
+    //check if special character
+    var parsed_key = parseInt(tes);
+    var key = tes;
+
+    if (tes in special_characters){
+        key = special_characters[tes];
+        return key;
+    }
+
+    if (tes.length === 1){
+        //check for digit
+        if(!isNaN(parsed_key)){
+            key = `Digit${tes}`;
+        }
+        //Normal key pressed
+        else{
+            //capitalise key e.g. a--> 
+            var capital = tes.toUpperCase();
+            key = `Key${capital}`;
+        }
+    }
+
+    else {
+        if (key in changed_characters){
+            key = changed_characters[key];
+        }
+
+        else
+            key = tes;
+    }
+
+    return key;
+}
